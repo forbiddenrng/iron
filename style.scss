@@ -1,0 +1,311 @@
+body{
+  font-family: 'Roboto', sans-serif;
+}
+$image-colors: #293036, #8d046e, #076397;
+$font-color: #bc2025;
+$footer-background: #151515;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "iron";
+  src: url('./maiden.ttf');
+}
+header{
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image: url('https://www.ironmaiden.com/assets/img/nav-bg.png');
+  padding: 20px;
+  .logo{
+    font-family: "iron";
+    font-size: 2.2rem;
+    color: white;
+  }
+  .menu{
+    button{
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+      font-weight: bold;
+      color: white;
+      font-size: 1.1rem;
+      padding: 5px;
+      text-transform: uppercase;
+    }
+    button.active{
+      color: $font-color;
+    }
+    button:hover{
+      color: $font-color;
+      transition: .2s;
+      cursor: pointer;
+    }
+
+  }
+}
+section.media{
+  background-image: url('https://www.ironmaiden.com/assets/img/nav-bg.png');
+  background-position: center;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  position: relative;
+  .transparent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bc2025;
+    opacity: .7;
+  }
+  .icons{
+    grid-column: 2/3;
+    position: relative;
+    z-index: 1;
+    i{
+      margin-left: 10px;
+      color: white;
+      opacity: 0.7;
+    }
+    i:hover{
+      opacity: 1;
+      transition: .2s;
+      cursor: pointer;
+    }
+  }
+}
+.banner{
+  height: 600px;
+  background-image: url('./tour.jpg');
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  .content{
+    position: absolute;
+    top: 40px;
+    left: 300px;
+    background-color: rgba(255,255,255,0.7);
+    h1{
+      color: $font-color;
+      text-transform: uppercase;
+      padding: 20px 10px 5px 10px;
+      font-size: 2rem;
+      font-weight: bolder;
+    }
+    p{
+      padding: 0 10px;
+    }
+    button{
+      margin: 15px 10px;
+      padding: 10px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 0;
+      background-color: $font-color;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    button:hover{
+      cursor: pointer;
+    }
+  }
+  .dots{
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    .dot{
+      width: 16px;
+      height: 16px;
+      border: none;
+      border-radius: 50%;
+      background-color: gray;
+      margin-right: 5px;
+    }
+    .dot.active{
+      background-color: white;
+    }
+    .dot:hover{
+      background-color: white;
+      cursor: pointer;
+      transition: .2s;
+    }
+  }
+}
+.latest{
+  background-image: url('./background.jpg');
+  background-size: cover;
+  .wrapper{
+    padding-top: 15px;
+    padding-bottom: 25px;
+    width: 60%;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 75% 25%;
+    .news{
+      .header-news{
+        display: flex;
+        margin-bottom: 20px;
+        h2{
+          flex-grow: 1;
+          text-transform: uppercase;
+          font-size: 1.5rem;
+        }
+        .view{
+          color: $font-color;
+          background-color: transparent;
+          margin-right: 10px;
+          border: none;
+          border-radius: 0;
+          font-weight: bold;
+          font-size: 1rem;
+          text-transform: uppercase;
+        }
+        .arrow{
+          background-color: transparent;
+          border-radius: 0;
+          border: none;
+          font-size: 2rem;
+          color: gray;
+          i:hover{
+            color: black;
+            transition: .5s;
+            cursor: pointer;
+          }  
+        }
+      }
+    }
+    .items{
+      display: flex;
+      justify-content: space-between;
+      .item{
+        flex-basis: 30%;
+        height: 400px;
+        position: relative;
+        background-color: white;
+        .image{
+          height: 170px;
+        }
+        .date{
+          color: gray;
+          font-size: 0.9rem;
+          padding: 10px;
+        }
+        .title{
+          padding: 0 10px;
+          text-transform: uppercase;
+          color: #bc2025;
+          font-weight: bold;
+        }
+        p{
+          padding: 10px;
+          color: #333;
+          font-size: 0.9rem;
+        }
+        button{
+          position: absolute;
+          left: 10px;
+          bottom: 7px;
+          padding: 10px;
+          font-size: 1rem;
+          text-transform: uppercase;
+          font-weight: bold;
+          background-color: darken(gray, 15%);
+          border: none;
+          border-radius: 0;
+          color: white;
+        }
+        button:hover{
+          cursor: pointer;
+          background-color: darken(gray, 30%);
+          transition: .3s;
+        }
+      }
+      $i: 1;
+      @each $bc in $image-colors{
+          .item:nth-child(#{$i}) .image{
+            background-color: $bc;
+          }
+          $i: $i+1;
+      }
+    }
+
+  }
+  .videos{
+    h2{
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+    .video{
+      height: 200px;
+      background-image: url("https://i.ytimg.com/vi/UEEm61impBY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBeF67NtpsJaBcZJb55-a32CSJGgQ");
+      background-position: top;
+      background-repeat: no-repeat;
+      
+    }
+    a{
+      color: $font-color;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover{
+      color: darken($font-color, 15%);
+      transition: .2s;
+    }
+  }
+}
+footer{
+  background-color: $footer-background;
+  padding-bottom: 20px;
+  .footer-content{
+    width: 60%;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    .left{
+      display: flex;
+      align-items: center;
+      .logo{
+        font-family: "iron";
+        color: white;
+        font-size: 2rem;
+      }
+      .icons{
+        margin-left: 15px;
+        i{
+          font-size: 1.1rem;
+          margin-right: 5px;
+          color: lightgrey;
+        }
+        i:hover{
+          cursor: pointer;
+          color: white;
+          transition: .2s;
+        }
+      }
+    }
+    .right{
+      color: lightgray;
+      display: flex;
+      align-items: center;
+      span{
+        margin-right: 10px;
+      }
+    }
+    
+  }
+}
